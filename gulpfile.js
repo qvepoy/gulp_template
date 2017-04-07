@@ -52,6 +52,7 @@ gulp.task('css-libs', ['sass'], function() {// Load sass task before css-libs
 // Watcher
 gulp.task('watch', ['browser-sync', 'css-libs', 'scripts'], function() {
     gulp.watch('app/sass/**/*.sass', ['sass']);    // Observation of sass files
+    gulp.watch('app/templates/*.html', ['html']);
     gulp.watch('app/*.html', browserSyns.reload);  // and other files
     gulp.watch('app/js/**/*.js', browserSyns.reload);
 });
@@ -82,5 +83,5 @@ gulp.task('build', ['clean', 'sass', 'scripts'], function() {
     .pipe(gulp.dest('dist'));
 });
 
-// Default
+// Default task
 gulp.task('default', ['watch']);
